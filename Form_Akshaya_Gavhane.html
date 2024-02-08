@@ -74,13 +74,13 @@
 			<br><br>
 
 			<label for="streetAddress">Street Address 1*:</label>
-			<input type="text" name="streetAddress" id="streetAddress" placeholder="Address" required="required" />
+			<input type="text" name="streetAddress" id="streetAddress" placeholder="Street Address 1" required="required" />
 			<div id="error_streetAddress" style=" display: none; color: red">
             </div>
 			<br><br>
 
 			<label for="streetAddress2">Street Address 2:</label>
-			<input type="text" name="streetAddress2" id="streetAddress2" placeholder="Address" />
+			<input type="text" name="streetAddress2" id="streetAddress2" placeholder="Street Address 2" />
 			<br><br>
 			
             <label for="zipCode">ZipCode*:</label>
@@ -467,12 +467,14 @@
         var submitFlag = false;
         let validRadio = checkRadioButton();
         
-	   if(validRadio){
+        if(validRadio && validSource && validDrinks){
 		  alert("Form Submitted Successfully");
           tableData = e.target;
           populateTable();
           resetForm();
-	   }
+	   }  else{
+        document.getElementById("submitBtn").disabled = true;
+       }
     }
 
     // function populate table
